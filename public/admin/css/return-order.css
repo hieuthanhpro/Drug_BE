@@ -1,0 +1,46 @@
+.return-order_input {
+    width: 10%;
+    margin-right: 14px;
+    display: inline-block;
+}
+
+.return-order_input-small {
+    width: 7%;
+    margin-right: 14px;
+    display: inline-block;
+}
+
+.return-order_drug_name {
+    display: inline-block;
+    width: 100px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.return-order_drug_image {
+    width: 60px;
+    height: 60px;
+    margin: 15px;
+}
+
+.return-order_drug_container {
+    border-bottom: 1px solid #eee;
+}
+.return-order_drug_header {
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+    background: #f4f4f4;
+}
+
+.return-order_drug_name_preview {
+    display: inline-block;
+    width: 220px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.return-order_input_preview {
+    width: 16%;
+    margin-right: 15px;
+    display: inline-block;
+}

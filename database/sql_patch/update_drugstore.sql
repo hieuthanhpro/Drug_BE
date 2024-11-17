@@ -1,0 +1,1 @@
+ALTER TABLE `drugstores` ADD COLUMN `pharmacist` varchar(150) DEFAULT NULL AFTER `username`;

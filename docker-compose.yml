@@ -1,0 +1,52 @@
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose
+#
+# 
+version: '3'
+services:
+
+  #PHP Service
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: php-api
+    container_name: php-api
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    # working_dir: /var/www
+    volumes:
+      - ./www:/var/www
+      - $HOME/dev/gpp_api:/var/www/gpp_api
+      - ./log:/var/log/nginx
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app-network
+
+  #Nginx Service
+  web:
+    image: nginx:alpine
+    container_name: nginx-api
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8071:8071"
+      - "8070:8070"
+      - "8060:8060"
+    volumes:
+      - ./www:/var/www
+      - $HOME/dev/gpp_api:/var/www/gpp_api
+      - ./conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+# #Volumes
+# volumes:
+#   dbdata:
+#     driver: local

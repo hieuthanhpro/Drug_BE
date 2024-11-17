@@ -1,0 +1,1 @@
+ALTER TABLE `invoice` ADD COLUMN `image` text DEFAULT NULL AFTER `payment_status`;

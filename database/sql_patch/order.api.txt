@@ -1,0 +1,42 @@
+order api
+   /order/detail/{id}
+   /order/cancel/{id}
+
+   get /order
+      data for filter : {
+         drug_name, // Tên Thuốc
+         order_code, // Mã số đơn đặt hàng
+         from_date,
+         to_date,
+      }
+
+   put /order/{id}
+   post /order/{id}
+   data: {
+      "vat_amount"
+      "receipt_date",
+      "delivery_date",
+      "status",
+      "created_at",
+      "supplier_order_code",
+      "pay_amount",
+      "amount",
+      "supplier_id",
+      "description",
+      "order_detail" : [{
+         "drug_id",
+         "unit_id", // Đơn vị tính
+         "quantity",
+         "cost",
+         "package_form", // quy cách đóng gói
+         "concentration", //Hàm lượng
+         "manufacturer" // Nhà sản xuất
+      }]
+   }
+
+order_tmp api (same as order api)
+   /order_tmp/detail/{id}
+   get /order_tmp
+   put /order_tmp/{id}
+   post /order_tmp/{id}
+   delete /order_tmp/{id}
